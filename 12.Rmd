@@ -1,0 +1,288 @@
+---
+title: "Boston Analysis"
+author: "Minji"
+date: '2020 10 13 '
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 데이터 소개
+
+보스턴 지역 주택 가격 데이터(MASS 패키지의 Boston 데이터)
+
+
+## EDA
+
+```{r cars}
+library(MASS)
+data <- Boston
+str(training)
+```
+
+데이터를 살펴보면 모두 숫자형으로 되어 있는데 여기서 chas변수는 찰스강과 접한 지역은 1, 아니면 1을 의미하는데 이는 의미상 범주형 데이터이 이기 때문에 제거 하도록 한다.
+(이번 분석에서는 수치형 데이터만 사용하기로 결정)
+
+```{r}
+sum(is.na(data))
+data <- subset(data,select =- chas)
+```
+
+데이터의 결측치는 존재하지 않는다.
+# EDA : 탐색적 데이터 분석, 데이터 확인
+library(VIM)           # Missing values with VIM::aggr()
+library(descr)         # descr::CrossTable() - Factor data의 범주별 빈도수, 비율 확인 
+library(DT)            # DT::datatable() - All data assesment with web chart 
+library(corrplot)      # Correlation coefficient 확인 
+install.packages("GGally)
+# Visuallization : 시각화 
+library(GGally)        # 모든 변수에 대한 다양한 시각화
+library(ggplot2)       # Visuallization 
+library(RColorBrewer)  # plot의 color 설정 
+library(scales)        # plot setting - x, y 축 설정
+# Feature engineering, Pre-processing : 데이터 전처리 
+# library(tidyverse)   # ggplot2, dplyr, purrr, etc ...
+library(dplyr)         # Used for almost all data handling 
+library(lubridate)     # Time series data Pre-processing 
+
+
+### train, vaildation, test 분리
+```{r}
+set.seed(1606)
+n <- nrow(data)
+idx <- 1:n
+training_idx <- sample(idx, n * .60)
+idx <- setdiff(idx, training_idx)
+validate_idx <- sample(idx, n * .20)
+test_idx <- setdiff(idx, validate_idx)
+training <- data[training_idx,]
+validation <- data[validate_idx,] 
+test <- data[test_idx,]
+```
+
+
+```{r pressure, echo=FALSE}
+ggplot(training, aes(y =c(indus, zn)), x= 1) + geom_boxplot() 
+
+p10 <- ggplot(data=training, aes(x=1, y=indus+zn))+
+        geom_boxplot(fill = 'Steel Blue 3',
+                     alpha = 0.7) +
+        ggtitle("Boxplot of mean ozone by month")
+
+box_plot <- function(df, x_name, title, name) {
+
+      ggplot(data=df, aes(x=1, y=x_name))+
+          geom_boxplot(fill = 'Indian Red 2',
+                     alpha = 0.7) +
+          ggtitle(title) +
+          scale_x_continuous(name = name) +
+          scale_y_continuous(name = "count")
+}
+  training %>% 
+  #keep(is.numeric) %>%   # only numeric (양적 변수만)
+  gather() %>%           # convert to key-value(변수-값 형태)
+  ggplot(aes(value)) +
+  facet_wrap(~key, scales = "free") +
+  geom_boxplot(bins = 15, color = "white", fill = "steelblue")
+?gather
+library(tidyr)
+  }
+library(dplyr)
+hist_plot <- function(df, x_name, title, name) {
+
+      ggplot(data=df, aes(x_name))+
+          geom_histogram(fill = 'Steel Blue 3',
+                     alpha = 0.7) +
+          ggtitle(title) +
+          scale_x_continuous(name = name)
+}
+
+library(gridExtra)
+grid.arrange(a,b,c,d, nrow=1, ncol=4)
+a<-box_plot(training, training$crim, "Boxplot of crim", "crim")
+b<-box_plot(training, training$zn, "Boxplot of zn", "zn")
+c<-box_plot(training, training$rm, "Boxplot of rm", "rm")
+d<-box_plot(training, training$black, "Boxplot of black", "black")
+
+a<-hist_plot(training, training$crim, "Histogram of crim", "crim")
+b<-hist_plot(training, training$zn, "Histogram of zn", "zn")
+c<-hist_plot(training, training$rm, "Histogram of rm", "rm")
+d<-hist_plot(training, training$black, "Histogram of black", "black")
+summary(training$crim)
+summary(training$zn)
+summary(training$rm)
+summary(training$black)
+
+a<-box_plot(training, training$indus, "Boxplot of indus", "indus")
+b<-box_plot(training, training$nox, "Boxplot of nox", "nox")
+c<-box_plot(training, training$age, "Boxplot of age", "age")
+d<-box_plot(training, training$rad, "Boxplot of rad", "rad")
+e<-box_plot(training, training$tax, "Boxplot of tax", "tax")
+
+a<-hist_plot(training, training$indus, "Histogram of indus", "indus")
+b<-hist_plot(training, training$nox, "Histogram of nox", "nox")
+c<-hist_plot(training, training$age, "Histogram of age", "age")
+d<-hist_plot(training, training$rad, "Histogram of rad", "rad")
+e<-hist_plot(training, training$tax, "Histogram of tax", "tax")
+
+
+grid.arrange(a,b,c,d,e, nrow=2, ncol=3)
+
+
+summary(training$indus)
+summary(training$nox)
+summary(training$age)
+summary(training$rad)
+summary(training$tax)
+
+grid.arrange(a,b,c, nrow=2, ncol=2)
+a<-box_plot(training, training$ptratio, "Boxplot of ptratio", "ptratio")
+b<-box_plot(training, training$dis, "Boxplot of dis", "dis")
+c<-box_plot(training, training$lstat, "Boxplot of lstat", "lstat")
+
+a<-hist_plot(training, training$ptratio, "Histogram of ptratio", "ptratio")
+b<-hist_plot(training, training$dis, "Histogram of dis", "dis")
+c<-hist_plot(training, training$lstat, "Histogram of lstat", "lstat")
+summary(training$ptratio)
+summary(training$dis)
+summary(training$lstat)
+summary(training$black)
+
+grid.arrange(a,b,c,d nrow=2, ncol=2)
+
+
+
+str(training)
+
+```
+```{r}
+
+
+#creating the standard plot 
+    
+
+install.packages("PerformanceAnalytics")
+library("PerformanceAnalytics")
+par(mfrow=c(1,4))
+chart.Correlation(training[c(1,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(2,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(3,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(4,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(5,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(6,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(7,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(8,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(9,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(10,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(11,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[c(12,13)], histogram=TRUE, pch=19)
+chart.Correlation(training[1:12], histogram=TRUE, pch=19)
+chart.Correlation(training[c(8,9)],histogram=TRUE, pch=19)
+head(training)
+```
+)
+## Including Plots
+```{r}
+boston.lm <- lm(medv~., data = training)
+boston.lm2 <- lm(medv~.^2, data = training)
+summary(boston.lm2)
+
+resid <- residuals(pred)
+
+RMSE(training$medv, boston.lm$fitted.values)
+
+RMSE <- function(y, y_hat){
+
+  sqrt(mean((y - y_hat)^2))
+
+}
+
+pred <- predict(boston.lm, newdata = validation)
+pred2 <- predict(boston.lm2, newdata = validation)
+
+plot(boston.lm2)
+par(mfrow = c(2,2))
+RMSE(training$medv, boston.lm$fitted.values)
+RMSE(validation$medv, pred)
+
+RMSE(training$medv, boston.lm2$fitted.values)
+RMSE(validation$medv, pred2)
+
+RMSE(training$medv, predict(boston.random_fo))
+RMSE(validation$medv, pred_random_fo)
+
+RMSE(training$medv, boston.gbm$fit)
+RMSE(validation$medv, pred_gbm)
+
+data.class <- c("training","validation")
+lm.model <- c(RMSE(training$medv, boston.lm$fitted.values),RMSE(validation$medv, pred))
+lm_2.model <-c(RMSE(training$medv, boston.lm2$fitted.values), RMSE(validation$medv, pred2))
+
+
+rf.model <- c(RMSE(training$medv, predict(boston.random_fo)), RMSE(validation$medv, pred_random_fo))
+gbm.model <- c(RMSE(training$medv, boston.gbm$fit), RMSE(validation$medv, pred_gbm))
+rmse_df <- data.frame(data.class, lm.model,lm_2.model, rf.model, gbm.model)
+cor(pred, validation$medv)
+
+plot(boston.lm, which =  1) 
+methods('plot') 
+attributes(boston.lm)
+res <- residuals(boston.lm) 
+shapiro.test(res)
+
+library(rpart)
+boston.tree<- rpart(medv ~ ., data = training)
+summary(boston.tree)
+
+par(mfrow = c(1,1))
+plot(boston.tree)
+text(boston.tree, use.n = TRUE)
+install.packages("rattle")
+library(rattle)
+fancyRpartPlot(boston.tree)
+
+# 검증 데이터로 테스트
+pred_tree <- predict(boston.tree, newdata = validation)
+RMSE(training$medv, predict(boston.tree))
+RMSE(validation$medv, pred_tree)
+boston.tree$
+
+  
+library(randomForest)
+boston.random_fo<- rpart(medv ~ ., data = training)
+summary(boston.random_fo)
+fancyRpartPlot(boston.random_fo)
+par(mfrow = c(1,1))
+plot(boston.random_fo)
+text(boston.random_fo, use.n = TRUE)
+
+f
+
+pred_random_fo <- predict(boston.random_fo, newdata = validation)
+RMSE(training$medv, predict(boston.random_fo))
+RMSE(validation$medv, pred_random_fo)
+
+install.packages("gbm")
+library(gbm)
+boston.gbm <- gbm(medv ~ ., data=training, verbose = TRUE)
+summary(gbm)
+pred_gbm <- predict(boston.gbm, newdata = validation)
+
+RMSE(training$medv, boston.gbm$fit)
+RMSE(validation$medv, pred_gbm)
+```
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+par(mfrow = c(2,2)) # plot 4개를 동시에 표시하기 위함.
+plot(boston.lm)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
