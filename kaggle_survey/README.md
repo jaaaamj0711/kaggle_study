@@ -10,4 +10,3 @@
 # 참고
 > https://www.youtube.com/channel/UCLR3sD0KB_dWpvcsrLP0aUg
 
-오늘링크라는 유튜브 채널을 참고하여 설문조사 데이터를 분석하고 연습하는 과정을 담았습니다.
