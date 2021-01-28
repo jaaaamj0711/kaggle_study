@@ -14,3 +14,7 @@ Netflix에 나열된 TV 프로그램 및 영화에 관한 데이터입니다.
 ## :computer: 분석 내용
 ### :heavy_check_mark: [EDA](https://github.com/jaaaamj0711/kaggle_study/blob/master/Netflix/Netflix_EDA.ipynb)
 ### :heavy_check_mark: [추천 시스템]
+
+
+## :+1: 추천 글
+https://towardsdatascience.com/how-to-build-from-scratch-a-content-based-movie-recommender-with-natural-language-processing-25ad400eb243
