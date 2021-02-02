@@ -8,7 +8,7 @@
 - Transaction: 각 주문에 대한 고유한 값입니다.
 - Item: 제품의 종류 즉 제품명을 의미합니다.
 - date_time: 구매날짜와 시간대를 의미합니다.
-- period_day: 구매한 요일을 의미합니다.
+- period_day: 구매 시간대를 카테고리 형태로 표현하였습니다('morning', 'afternoon', 'evening', 'night')
 - weekday_weekend: 주문한 날이 평일인지 주말인지를 의미합니다.
 
 ### :link:[데이터 링크](https://www.kaggle.com/mittalvasu95/the-bread-basket)
