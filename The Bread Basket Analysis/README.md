@@ -24,6 +24,6 @@
 연관분석의 대표적인 알고리즘 중 하나인 **Apriori**을 사용해서 연관분석을 진행합니다. 
 분석 결과를 해석하며 어떠한 상품들이 연관지어 많이 판매되는지 알 수 있습니다.
 
-## [코드 링크(https://github.com/jaaaamj0711/kaggle_study/blob/master/The%20Bread%20Basket%20Analysis/The_Bread_Basket_Analysis.ipynb)
+## [코드 링크](https://github.com/jaaaamj0711/kaggle_study/blob/master/The%20Bread%20Basket%20Analysis/The_Bread_Basket_Analysis.ipynb)
 
 
