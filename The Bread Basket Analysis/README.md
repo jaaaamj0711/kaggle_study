@@ -28,6 +28,9 @@
 
 
 ## 참고 
+http://blog.skby.net/apriori-%EC%97%B0%EA%B4%80-%EA%B7%9C%EC%B9%99-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/
+
+ 
 https://www.kaggle.com/victorcabral/bread-basket-analysis-apriori-association-rules
 
 
