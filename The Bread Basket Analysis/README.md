@@ -27,3 +27,7 @@
 ## [코드 링크](https://github.com/jaaaamj0711/kaggle_study/blob/master/The%20Bread%20Basket%20Analysis/The_Bread_Basket_Analysis.ipynb)
 
 
+## 참고 
+https://www.kaggle.com/victorcabral/bread-basket-analysis-apriori-association-rules
+
+
