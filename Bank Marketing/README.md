@@ -2,4 +2,4 @@
 
 
 https://www.kaggle.com/muratmert/bank-marketing-analysis-with-algorithms
-ㄷ
+https://www.kaggle.com/codestudiods/eda-and-model-building-bank-marketing-dataset
