@@ -4,6 +4,7 @@
 
 해당 데이터에는 이전에 진행했던 마케팅 결과가 담겨있고, 그에 따른 정기 예금 가입여부가 담겨져 있습니다.
 
+고객을 유지하는 것이 중요. 이탈고객 예측으로 
 
 https://www.kaggle.com/muratmert/bank-marketing-analysis-with-algorithms
 https://www.kaggle.com/codestudiods/eda-and-model-building-bank-marketing-dataset
