@@ -8,3 +8,6 @@
 
 https://www.kaggle.com/muratmert/bank-marketing-analysis-with-algorithms
 https://www.kaggle.com/codestudiods/eda-and-model-building-bank-marketing-dataset
+
+
+주말동안 완성하기 꼭꼬곢!!!!!!!! 
