@@ -11,3 +11,10 @@ https://www.kaggle.com/codestudiods/eda-and-model-building-bank-marketing-datase
 
 
 주말동안 완성하기 꼭꼬곢!!!!!!!! 
+
+
+
+실패
+
+정기예금이란?
+일정 금액을 정해진 기간동안 예치해두고 만기가되면 정해진 이율로 이자를 받는것
