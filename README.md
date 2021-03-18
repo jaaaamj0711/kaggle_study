@@ -21,3 +21,11 @@
 ## 
 
 ------------정리 필요
+
+
+재밌어 보이는 커널 
+https://www.kaggle.com/preatcher/emotion-detection-lstm
+이모지 분리 하기
+https://www.kaggle.com/jibinjk/starter-emotions-sensor-data-set-5123fe52-6
+
+이것도 해보면 좋을듯 비정현데이터분석 관련해서~
