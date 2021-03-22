@@ -13,6 +13,20 @@ http://www.drunion.co.kr/official.php/home/info/2028
 https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
 
 ### 데이터 설명
+|**변수**|**설명**|
+|:---:|---:|
+|id|고유 식별자|
+|gender|성별|
+|age|나이|
+|hypertension|고혈압 여부|
+|heart_disease|심장병 여부|
+|ever_married|결혼 여부|
+|work_type|일 타입|
+|Residence_type|거주지 타입|
+|avg_glucose_level|평균 포도당 수준|
+|bmi|체질량 지수|
+|smoking_status|흡연 여부|
+|stroke|뇌졸증 여부|
 
 
 이 분석은 해당 커널들을 참고하여 진행하였습니다.
