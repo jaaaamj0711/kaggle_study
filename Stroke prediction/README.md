@@ -1,4 +1,4 @@
-# :hospital: 뇌졸증 환자 예측
+# :hospital:<span style="color:yellow"> 뇌졸증 환자 예측</span>
 
 ![image](https://user-images.githubusercontent.com/55734436/112008591-f6e51500-8b68-11eb-9a6e-1023414cae56.png)
 
@@ -11,6 +11,9 @@ http://www.drunion.co.kr/official.php/home/info/2028
 
 ### :paperclip: 데이터 링크
 https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
+
+### 데이터 설명
+
 
 이 분석은 해당 커널들을 참고하여 진행하였습니다.
 
