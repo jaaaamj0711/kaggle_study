@@ -1,6 +1,7 @@
-# :hospital:<span style="color:yellow"> 뇌졸증 환자 예측</span>
+# :hospital: 뇌졸증 환자 예측
 
-![image](https://user-images.githubusercontent.com/55734436/112008591-f6e51500-8b68-11eb-9a6e-1023414cae56.png)
+<center><img src="https://user-images.githubusercontent.com/55734436/112008591-f6e51500-8b68-11eb-9a6e-1023414cae56.png" width="600" height="400"></center>
+
 
 ### :question: 분석 필요 이유
 세계 보건기구 (WHO)에 따르면 뇌졸중은 전 세계적으로 두 번째 주요 사망 원인으로 전체 사망의 약 11 %를 차지한다고 합니다.  
