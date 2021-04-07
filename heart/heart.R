@@ -80,3 +80,41 @@ a = ggplot(data, aes(`Heart Disease`, fill = `Heart Disease`, color = `Heart Dis
   theme(legend.position="bottom")
 
 # ----  Gender   ------
+
+
+
+
+
+
+#################################################################
+#---------------------------------------------------------------#
+#######   Visualize the Data Distributions/Interactions    ######
+#---------------------------------------------------------------#
+#################################################################
+
+# ----- Age & Heart Disease  -------
+a = ggplot(df,aes(Age, fill = `Heart Disease`, color = `Heart Disease`)) + 
+  geom_density(lwd = 3, show.legend = T, alpha = 0.7) + 
+  labs(title = "Age & Hypertension") + facet_grid(~prevalentHyp) +
+  scale_fill_manual(values=c("#C7E9B4", "#1D91C0")) + 
+  scale_color_manual(values=c('seagreen4', "#253494")) +
+  theme_bw(base_size = 18) + theme(legend.position="bottom") +
+  theme(strip.background = element_rect(fill="snow1")) +
+  theme(strip.text = element_text(face = "bold", size = 18)) +
+  geom_vline(xintercept = mean(df$Age), lwd = 2.5, 
+             color = "#081D58", linetype = 4)
+
+# ----- Systolic Blood Pressure & Hypertension  -------
+b = ggplot(df,aes(sysBP, fill = `Heart Disease`, color = `Heart Disease`)) + 
+  geom_density(lwd = 3, show.legend = T, alpha = 0.7) + 
+  labs(title = "Systolic Blood Pressure & Hypertension") + facet_grid(~prevalentHyp) + 
+  scale_fill_manual(values=c("#C7E9B4", "#1D91C0")) + 
+  scale_color_manual(values=c('seagreen4', "#253494")) +
+  theme_bw(base_size = 18) + theme(legend.position="bottom")+
+  theme(strip.background = element_rect(fill="snow1")) +
+  theme(strip.text = element_text(face = "bold", size = 18)) +
+  geom_vline(xintercept = mean(df$sysBP), lwd = 2.5, 
+             color = "#081D58", linetype = 4)
+
+options(repr.plot.width=16, repr.plot.height=7)
+plot_grid(a,b, ncol = 2, nrow = 1)
