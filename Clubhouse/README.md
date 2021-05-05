@@ -1,6 +1,8 @@
 # CLUB HOUSE
 ![image](https://user-images.githubusercontent.com/55734436/116897702-8a355e00-ac70-11eb-96d3-0c66924f3441.png)
 
+## 데이터 출처
+[:point_right:](https://www.kaggle.com/johntukey/clubhouse-dataset)
 
 ## CLUB HOUSE란?
 클럽 하우스는 하나의 주제를 가지고 방을 만들면 관심 분야에 속하는 사람들이 모여 소통하는 어플리케이션입니다.
